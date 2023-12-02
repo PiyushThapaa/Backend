@@ -1,5 +1,5 @@
 import express from "express";
-import {getMyProfile, login, register} from "../controllers/user.js";
+import {getMyProfile, login, logout, register} from "../controllers/user.js";
 import { isAuthenticated } from "../middlewares/auth.js";
 
 const router = express.Router();
@@ -13,7 +13,7 @@ router.post('/login',login)
 
 // router.get("/userid/:id", getUserId)
 router.get("/me",isAuthenticated,getMyProfile)
-router.get("/logout",getMyProfile)
+router.get("/logout",logout)
 // .post(postUserId).put(putUserId).delete(deleteUserId)
 
 export default router;
